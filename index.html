@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="G2TRIF - Generalized Grounded Temporal Reasoning for Robot
+    Instruction Following">
+  <meta name="keywords" content="Temporal Reasoning, Zero-Shot, Robot Instruction Following ">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Temporal Reasoning</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <header class="header">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title"><span class="dnerf"></span>G<sup>2</sup>TRIF - Generalized Grounded Temporal Reasoning for Robot
+                Instruction Following
+              </h1>
+              <h3 class="title is-4 conference-authors" style="color: rgb(0, 102, 255);"></h3>
+              <div class="is-size-5 publication-authors" , style="margin-bottom: 5mm;">
+                <span class="author-block">
+                  Riya Arora<sup>1*</sup>,</span>
+                <span class="author-block">
+                  Niveditha Narendranath<sup>1*</sup>,</span>
+                  <span class="author-block">
+                    Sandeep S. Zachariah<sup>1+</sup>,</span>
+                <span class="author-block">
+                  Aman Tambi<sup>1+</sup>,</span>
+                
+                <br>
+                <span class="author-block">
+                  Souvik Chakraborty<sup>1</sup>,</span>
+                <span class="author-block">
+                  Rohan Paul<sup>1</sup></span>
+                
+                
+              </div>
+
+              <div class="is-size-6 publication-authors" , style="margin-bottom: 8mm;">
+                <!-- <span class="author-block"><sup>1</sup>Work primarily done when at IIT Delhi, </span>-->
+                <span class="author-block"><sup>1</sup>Affiliated with IIT Delhi, </span>
+                <span class="author-block"><sup>{*,+}</sup>Indicate equal contributions</span>
+              </div>
+
+              <!-- <div class="column has-text-centered">
+                <div class="publication-links"> -->
+                  <!-- PDF Link. -->
+                  <!-- <span class="link-block">
+                    <a href="https://arxiv.org/pdf/2402.15767.pdf" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="http://arxiv.org/abs/2402.15767" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span> -->
+                  <!-- Video Link. -->
+                  <!-- <span class="link-block">
+                    <a href="https://1drv.ms/f/s!AjIGOzSicYxmgQnyyezjnUCMDo3N?e=54ufNt"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                      </span>
+                      <span>Video</span>
+                    </a>
+                  </span> -->
+                  <!-- Code Link. -->
+                  <!-- <span class="link-block">
+                    <a href="https://github.com/phyplan/PhyPlan"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
+                  </span> -->
+                  <!-- Code Link. -->
+                  <!-- <span class="link-block">
+                    <a href="https://1drv.ms/f/s!AjIGOzSicYxmcmRXYJJINf42I20?e=XhDGne"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fa fa-database"></i>
+                      </span>
+                      <span>Data</span>
+                    </a>
+                  </span> -->
+                <!-- </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </section>
+
+  <hr>
+
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="subtitle" , style="max-width: 90%; padding-left: 10%;">
+      [A short abstract of the paper goes here.]
+    </h2>
+  </div>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Introduction. -->
+      <h2 class="title has-text-centered is-3">Introduction</h2>
+      <div class="content is-four-fifths has-text-justified">
+        <p>
+          <!-- Robust Robot Instruction Following mandates robots to possess  spatial and temporal reasoning capabilities within their environment. While current methodologies have advanced robots' semantic and spatial comprehension, temporal reasoning remains deficient. In tasks requiring action execution, robots are expected to draw upon past observations to aid humans effectively, necessitating a human-level semantic understanding and memory. This paper highlights the challenge and proposes solutions essential for enhancing robots' ability to recall sequences of actions, crucial for assisting humans in diverse scenarios. Figure 1 exemplifies the expected memory-dependent action sequences.        </p> -->
+          Consider the scenario where a human cleans a
+table and a robot observing the scene is instructed with the
+task ”Remove the cloth using which I wiped the table”. This
+requires the robot to first recognize the need for temporal
+reasoning about past events. The robot must then identify
+the relevant past object interaction, ground the object of
+interest in the present scene, and execute the task according to
+the human’s instruction. While previous efforts have enabled
+temporal reasoning in robots, they typically rely on supervised
+learning with hand-crafted features. We propose addressing
+this challenge using Large Vision-Language Models (LVLMs)
+trained on internet-scale data. This allows us to re-frame
+the problem as a video-understanding task and solve it in a
+generalized manner. Further, we employ a Phrase Grounding
+model to accurately ground the object in the real world,
+facilitating effective robot-object interaction. To evaluate our
+framework, we release a robust dataset comprising 160 video-
+instruction pairs involving temporal, spatial, and linguistic
+complexity. Our approach has an average accuracy of 71.87%
+      </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h2 class="title is-3 has-text-centered">Technical Approach Overview</h2>
+        <div class="columns is-centered is-vcentered" , padding-left: 7%;>
+          <!-- Image Column -->
+          <div>
+            <img src="./static/images/pipeline_diagram_v2.drawio.png"
+              style="border-radius: 30px; border: 2px solid #555555; background-color: azure;" />
+          </div>
+          <!-- Text Column -->
+          </div>
+        </div>
+        <!-- Subtitle Section -->
+        <!-- <div class="has-text-justified">
+          <h2 class="subtitle">
+            <span class="dnerf">PhyPlan</span> is a novel physics-informed planning framework based on accelerated
+            learning of Physical Reasoning Tasks using Physics Informed Skill Networks
+          </h2>
+        </div> -->
+      
+
+      <div class="columns is-centered is-vcentered has-text-justified">
+        <p>
+          <b>Temporal Reasoning Pipeline:</b> [Content to be added here]
+        </p>
+      </div>
+      <!-- <div class="columns is-centered is-vcentered", padding-left: 7%;>
+        <img src="./static/images/TR_Pipeline.drawio(3).png"
+          style="border-radius: 30px; border: 2px solid #555555; background-color: azure;" />
+      </div> -->
+
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3" style="text-align: center;">Curated Dataset</h2>
+      <div class="has-text-justified">
+        <p>
+          To evaluate the pipeline, we formulated a dataset of 30+ video-instruction pairs (mean length 6 seconds). The dataset consists of a variety of scenarios such as single action - single interaction, single action - multiple interactions, and multiple actions - multiple interactions, with similar and distinct objects in the scene. Some examples of the curated dataset are shown below:
+
+        </p>
+        <br>
+      </div>
+      <hr>
+      <div class="columns is-multiline" style="justify-content: center;">
+        <div class="column is-one-third" style="display: flex; flex-direction: column; align-items: center;">
+          <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: auto;">
+            <img src="static/gif/GIFs/1i1o-place_cloth.gif" alt="GIF 1" style="width: 300px; height: 200px; border-radius: 25px;">
+          </figure>
+          <h3 class="title is-5" style="text-align: center;">Single Action - Single Interaction - Similar Objects</h3>
+          <!-- <p style="text-align: justify;">Skill network learns to determine the displacement and velocity of a sliding
+            box with given initial velocity at any time queried on a rough plane</p> -->
+        </div>
+        <div class="column is-one-third" style="display: flex; flex-direction: column; align-items: center;">
+          <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: auto;">
+            <img src="static/gif/GIFs/1imo-place.gif" alt="GIF 2"
+              style="width: 300px; height: 200px; border-radius: 25px;">
+          </figure>
+          <h3 class="title is-5" style="text-align: center;">Single Action - Multiple Interactions - Distinct Objects</h3>
+          <!-- <p style="text-align: justify;">Skill network learns to determine the location and velocity of ball thrown
+            with
+            given initial angle and velocity at any time queried.</p> -->
+        </div>
+        <div class="column is-one-third" style="display: flex; flex-direction: column; align-items: center;">
+          <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: auto;">
+            <img src="static/gif/GIFs/1a2i1o-pour_cup.gif" alt="GIF 3" style="width: 300px; height: 200px; border-radius: 25px;">
+          </figure>
+          <h3 class="title is-5" style="text-align: center;">One Action - Multiple Interactions - Similar Objects</h3>
+          <!-- <p style="text-align: justify;">Skill network learns to determine angular position and angular velocity of
+            pendulum at any time queried with given initial angular position.</p> -->
+        </div>
+        
+      </div>
+      <!-- Second Row of GIFs -->
+      <div class="columns is-multiline" style="justify-content: center;">
+        <div class="column is-one-third" style="display: flex; flex-direction: column; align-items: center;">
+          <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: auto;">
+            <img src="static/gif/GIFs/1imo.gif" alt="GIF 4" style="width: 300px; height: 200px; border-radius: 25px;">
+          </figure>
+          <h3 class="title is-5" style="text-align: center;">Single Action - Single Interaction - Distinct Objects</h3>
+          <!-- <p style="text-align: justify;">Skill network learns to determine velocity of puck just after it gets hit by a
+            swinging pendulum.</p> -->
+        </div>
+        <div class="column is-one-third" style="display: flex; flex-direction: column; align-items: center;">
+          <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: auto;">
+            <img src="static/gif/GIFs/tmp_reason24.gif" alt="GIF 5" style="width: 300px; height: 200px; border-radius: 25px;">
+          </figure>
+          <h3 class="title is-5" style="text-align: center;">Multiple Action - Multiple Interaction - Distinct Objects</h3>
+          <!-- <p style="text-align: justify;">Skill network learns to determine velocity of ball just after it bounces a
+            wedge.</p> -->
+        </div>
+      </div>
+
+      <!-- <div class="columns is-centered is-vcentered"> -->
+        <!-- Text Column -->
+        <!-- <div class="column is-half has-text-justified">
+          <p>
+            <i><b>The skill learning model is based on a neural network that predicts the object's state during dynamic
+                interaction continuously parameterised by time.</i></b> The figure on the side shows the predicted
+            positions of the ball plotted against time in the Bounce Task. Such interactions can be simulated in a
+            physics engine by using
+            numerical integration schemes.
+            However, since we aim to perform multi-step interactions, simulating outcomes during training is often
+            intractable. Hence, we adopt a learning-based approach and learn a function which predicts the object's
+            state during dynamic interaction continuously parameterised by time.
+            For certain skills like swining, sliding and throwing we levarage the known governing physics equations and
+            employ a physics-informed loss function in neural network to constrain the latent space, these are called as
+            Physics-Informed Skill Networks.
+            However, skills like bouncing and hitting are learnt directly from data because of complex and intractable
+            physics.
+          </p>
+        </div> -->
+        <!-- Image Column -->
+        <!-- <div class="column is-half">
+          <img src="./static/images/bounce_chain_0.5.png" width="1499" height="976"
+            style="border-radius: 25px; border: 2px solid #000000;" />
+        </div> -->
+      <!-- </div> -->
+      <!-- <div class="has-text-justified">
+        <p>
+          The skill learning model is based on a neural network that predicts the object's state during dynamic
+          interaction continuously parameterised by time. Such interactions can be simulated in a physics engine by
+          using numerical integration schemes.
+          However, since we aim to perform multi-step interactions, simulating outcomes during training is often
+          intractable. Hence, we adopt a learning-based approach and learn a function which predicts the object's
+          state during dynamic interaction continuously parameterised by time.
+          For certain skills like swining, sliding and throwing we levarage the known governing physics equations and
+          employ a physics-informed loss function in neural network to constrain the latent space, these are called as
+          Physics-Informed Skill Networks.
+          However, skills like bouncing and hitting are learnt directly from data because of complex and intractable
+          physics.
+        </p>
+      </div> -->
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3" style="text-align: center;"> Video Demonstration</h2>
+      <div class="columns is-centered is-vcentered"> 
+        <Text Column>
+        <div class="column has-text-justified">
+          <p>
+            <i><b>The following is a video demonstration of our pipeline for the instruction "pick the object that I just placed."</i></b> 
+            The robot in scene is a Franka Emika Arm Manipulator. There is a table in front of the robot, on which various objects such as a pair of glasses, a cup, 
+            and a small bottle are already kept and the robot is observing this scene with its camera. Then a person comes and places a new object (a banana) on the table. 
+            This is recorded as a stream of frames in robot's camera. Then an instruction "pick the object that I just placed" is given to the robot. 
+            This instruction and the recorded past observations are sent as input in our model. First, the instruction is broken down into a future action for the robot 
+            (in this case "pick up the object") and a declarative part to be sent to LVLM for processing (for e.g "Identify the object that was just placed").
+            After this parsing action (carried out by GPT-4), an initial scene description is given from the first frame of the recorded set of frames (i.e scene before action)(carried out by GPT-4v). 
+            This scene description, alongwith other inputs are sent to LVLM for object interaction recognition. For our case, the LVLM, Video-LLaVA returns "The object that was placed is a banana. It is yellow in colour and is kept in front of the person placing it."
+            Now, as a next step, the object of interest i.e a banana, is extracted from this output by a parser (via GPT4). Once it is identified that the object of interest is a banana, the next step is to ground it.
+            This is done by passing robot's present visuals and the object to be grounded, "banana" , to a semantic phase grounding model (for our case, CogVLM). This gives us a bounding box around the objec of interest and its coordinates.
+            Once grounded, the control component plans motion for the robot and executes the intruction by picking up the banana as can be shown in the video.
+          </p>
+        </div> 
+        <Image Column>
+        <div class="column is-centered">
+          <video id="matting-video" controls playsinline height="100%" style="border-radius: 25px;">
+            <source src="./static/video/video_demo.mp4" type="video/mp4">
+          </video> 
+        
+        </div> 
+      </div> 
+    </div>  
+  </section>>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Experimental Insights</h2>
+      <div id="tasks" , class="column has-text-justified">
+        <p>
+          We compared the state of the art LVLM and LLM models to realize various aspects of the proposed pipeline. We use GPT4 for both the parsing tasks, GPT-4V for initial scene description, Video-LLaVA for object interaction recognition and CogVLM for semantic object grounding. The experimentation of the entire end-to-end pipeline was carried out on a Franka Emika robot manipulator. The robot observes a person placing an object and later successfully executes the instruction, "robot, pick up the object that I just placed". 
+          The figure below show the accuracy of instruction following for the scenarios partitioned as those containing identical vs. distinct objects on the scene. The overall success rate was obtained as 45.3%. We observe that LVLMs gave incorrect or ambiguous outputs when all the objects on the scene were identical while higher performance for scenarios with distinct objects. Results indicate the lack of robustness in contemporary LVLMs in identifying complex spatial properties.  
+        </p>
+      </div>
+      <hr>
+      <div class="columns is-multiline">
+        <div class="column is-centered is-half">
+          <div class="content">
+            <h3 class="title is-4 has-text-centered">Overall Accuracy</h3>
+            <img src="static/images/pie_chart-1.png" alt="GIF 4" style="width: 500px; height: 300px; border-radius: 25px;">
+
+            <p class="teaser has-text-justified">
+              Success Rate for Similar and Distinct cases in our dataset</p>
+          </div>
+        </div>
+
+        <div class="column is-centered is-half">
+          <div class="content">
+            <h3 class="title is-4 has-text-centered">Accuracy of Pipeline (divided on dataset)</h3>
+            <!-- <p class="has-text-justified">Robot trains to use pendulum object present in the environment to slide the
+              puck to the goal</p> -->
+              <img src="static/images/BarGraph.png" alt="GIF 4" style="width: 500px; height: 315px; border-radius: 25px;">
+            <!-- <video id="matting-video" controls playsinline height="100%" style="border-radius: 25px;
+              <source src="./static/video/slide.mp4" type="video/mp4">
+            </video> -->
+            <p class="teaser has-text-justified">
+              Success Rate of our Pipeline for our dataset
+            </p>
+          </div>
+        </div>
+
+        <div class="column is-centered is-half">
+          <div class="content">
+            <h3 class="title is-4 has-text-centered">Example - Failure Case 1</h3>
+            <p class="has-text-justified">Scenario in which all objects are completely identical and the spatial properties get complex (objects are too close to each-other)</p>
+            
+              <img src="static/images/Untitled Diagram.drawio.png" alt="GIF 4" style="width: 500px; height: 315px; border-radius: 25px;">
+            
+            <p class="teaser has-text-justified">
+              For instruction ”pick the object that was just placed”, VideoLLaVA outputs "The object that was placed was the cup in the center". Hence, the output of our proposed pipeline (via Video-LLAVA) (in red) deviates from the ground truth (in green) resulting in erronous temporal reasoning.
+            </p>
+          </div>
+        </div> 
+
+        <div class="column is-centered is-half">
+          <div class="content">
+            <h3 class="title is-4 has-text-centered">Example - Failure Case 2</h3>
+            <p class="has-text-justified"> Scenario in which two identical objects are placed among other distinct objects.</p>
+            
+              <img src="static/images/amb2.drawio.png" alt="GIF 4" style="width: 500px; height: 315px; border-radius: 25px;">
+            </video>
+            <p class="teaser has-text-justified">
+              For instruction ”pick the object that was just placed”, VideoLLaVA outputs "The object that was placed was the controller near the person." Hence, the output of our proposed pipeline (via Video-LLAVA) (in red) deviates from the ground truth (in green) resulting in erronous temporal reasoning.
+              <These, along with multiple physical skills involved in the task, highlight PhyPlan's adaptability to long-horizon tasks. -->
+            </p>
+          </div>
+          <!-- OUR DEMO START -->
+          <!-- <div class="content">
+            <h3 class="title is-4 has-text-centered"><span class="dnerf">DQN-Adaptive</span></h3>
+            <div class="columns is-centered is-vcentered">
+              <!-- Image Column -->
+              <!-- <div class="column is-one-third">
+                <img src="./static/images/bridge_dqn-comp/DQN-1.png" width="400" height="300"
+                  style="border-radius: 25px;" />
+                <p class="teaser has-text-centered">
+                  <span class="dnerf">DQN-Adaptive</span>: Action 1
+                </p>
+              </div>
+              <div class="column is-one-third">
+                <img src="./static/images/bridge_dqn-comp/DQN-4.png" width="400" height="300"
+                  style="border-radius: 25px;" />
+                <p class="teaser has-text-centered">
+                  <span class="dnerf">DQN-Adaptive</span>: Action 4
+                </p>
+              </div>
+              <div class="column is-one-third">
+                <img src="./static/images/bridge_dqn-comp/DQN-11.png" width="400" height="300"
+                  style="border-radius: 25px;" />
+                <p class="teaser has-text-centered">
+                  <span class="dnerf">DQN-Adaptive</span>: Action 11
+                </p>
+              </div>
+            </div>
+            <!-- Subtitle Section -->
+            <!-- <p class="teaser has-text-justified">
+              <span class="dnerf">DQN-Adaptive</span> (Baseline) executes actions in sequence while learning the difference
+              in the predicted reward for an action and the actual reward. However, it does not use the bridge even after 11
+              attempts which is needed to land the ball further closer to the goal.
+            </p>
+          </div> --> 
+          <!-- <div class="content">
+            <h3 class="title is-4 has-text-centered"><span class="dnerf">PhyPlan</span></h3>
+            <div class="columns is-centered is-vcentered">
+              <!-- Image Column -->
+              <!-- <div class="column is-one-third">
+                <img src="./static/images/bridge_dqn-comp/Phyplan_1.png" width="400" height="300"
+                  style="border-radius: 25px;" />
+                <p class="teaser has-text-centered">
+                  <span class="dnerf">PhyPlan</span>: Action 1
+                </p>
+              </div>
+              <div class="column is-one-third">
+                <img src="./static/images/bridge_dqn-comp/Phyplan_2.png" width="400" height="300"
+                  style="border-radius: 25px;" />
+                <p class="teaser has-text-centered">
+                  <span class="dnerf">PhyPlan</span>: Action 2
+                </p>
+              </div>
+              <div class="column is-one-third">
+                <img src="./static/images/bridge_dqn-comp/Phyplan_4.png" width="400" height="300"
+                  style="border-radius: 25px;" />
+                <p class="teaser has-text-centered">
+                  <span class="dnerf">PhyPlan</span>: Action 4
+                </p>
+              </div>
+            </div> --> 
+            <!-- Subtitle Section -->
+            <!-- <p class="teaser has-text-justified">
+              <span class="dnerf">PhyPlan</span> executes actions in sequence while learning the difference in the predicted
+              reward for an action and the actual reward. It does not use the bridge in the first attempt because
+              of errors in prediction. However, it quickly realises the need of the bridge in the second attempt. Further,
+              it chooses appropriate actions to land the ball in the goal in just the fourth attempt. Note that the robot
+              learns to use the bridge effectively; a physical reasoning task reported earlier <a
+                href="https://arxiv.org/abs/1907.09620" class="external-link is-normal">[Allen et al., 2020]</a> to be
+              challenging to learn for model-free methods, highlighting PhyPlan’s adaptability to long-horizon tasks.
+            </p> -->
+          <!-- </div> -->
+          <!-- OUR DEMO END-->
+        </div> 
+      </div>
+    </div>
+    
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Conclusion and Future Work</h2>
+      <div class="column has-text-justified">
+        <p>
+          It was found that GPT-4V returns an accurate and detailed description of the initial scene. Combining this with Video-LLaVA's temporal understanding over videos, especially short duration ones, and CogVLM's state-of-the-art grounding abilities, we were able to identify objects of interest with ease. 
+          It was observed that providing the initial scene description facilitates the LVLM in accurately identifying objects that have been manipulated, especially in ambiguous scenarios where there are similar objects in a scene, thereby reducing hallucinating and erroneous object identification. 
+          Further, it was discovered that our choice of semantic object grounding model, CogVLM, performs well even when partially erroneous LVLM outputs. Future work will explore improved prompting strategies such as chain-of-thought as well as feedback from a downstream model to refine predictions of an upstream model. 
+        </p>
+      </div>
+      <hr>
+
+      
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- <section class="section" id="References">
+    <div class="container is-max-desktop content">
+      <h2 class="title">References</h2>
+      <pre><code>1. [Allen et al., 2020] Kelsey R Allen, Kevin A Smith, and Joshua B Tenenbaum.
+        Rapid trial-and-error learning with simulation supports flexible tool use and physical reasoning.
+        Proceedings of the National Academy of Sciences, 117(47):29302–29310, 2020.</code></pre>
+      <pre><code>2. [Bakhtin et al., 2019] Anton Bakhtin, Laurens van der Maaten, Justin Johnson, Laura Gustafson, and Ross Girshick.
+        Phyre: A new benchmark for physical reasoning.
+        Advances in Neural Information Processing Systems, 32,484 2019.</code></pre>
+    </div>
+  </section> -->
+
+  <!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Citation</h2>
+      <pre><code>@inproceedings{phyplan2024,
+      title     = {PhyPlan: Compositional and Adaptive Physical Task Reasoning with Physics-Informed Skill Networks for Robot Manipulators},
+      author    = {Vagadia, Harshil and Chopra, Mudit and Barnawal, Abhinav and Banerjee, Tamajit and Tuli, Shreshth and Chakraborty, Souvik and Paul, Rohan},
+      booktitle = {},
+      year      = {2024}
+    }</code></pre>
+    </div>
+  </section> -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
